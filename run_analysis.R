@@ -1,7 +1,7 @@
 ## Step 1. Merges the training and the test sets to create one data set.
 
 ## Load data.table library, define an empty data.table "y".
-library(data.table)
+library("data.table")
 y <- data.table(matrix(NA, nrow=1, ncol=561))
 x <- data.table(matrix(NA, nrow=1, ncol=561))
 
@@ -79,3 +79,5 @@ actlab<-str_replace_all(actlab,"4","SITTING")
 actlab<-str_replace_all(actlab,"5","STANDING")
 actlab<-str_replace_all(actlab,"6","LAYING")
 TD<-cbind("subject"=subject, "activityLabels"=actlab, "activity"=actnum, TD)
+## Write table to TD.txt
+write.table(TD,file="TD.txt")
